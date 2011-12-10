@@ -59,10 +59,15 @@ describe User do
   end
   
   it "should reject invalid passwords" do
-    invalid_passwords = '%w[123456 abcdef ab12]'
+    invalid_passwords = %w[123456 abcdef ab12]
     invalid_passwords.each do |password|
       invalid_password_user = User.new(@attr.merge(:password => password))
       invalid_password_user.should be_invalid
     end
+  end
+  
+  it "should allow digit before character in password" do
+    valid_password_user = User.new(@attr.merge(:password => '1john'))
+    valid_password_user.should be_valid
   end
 end
