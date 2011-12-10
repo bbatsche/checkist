@@ -1,4 +1,6 @@
 Checkist::Application.routes.draw do
+  get "sessions/new"
+
   root :to => 'pages#home'
   
   match "/about", :to => "pages#about"
