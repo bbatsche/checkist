@@ -19,6 +19,9 @@ class User < ActiveRecord::Base
   
   before_save :encrypt_password
   
+  has_many :assigned_todos, :foreign_key => 'owner', :class_name => 'Todo'
+  has_many :incoming_todos, :foreign_key => 'pending_owner', :class_name => 'Todo'
+  
   def has_password?(submitted_password)
     password == encrypt(submitted_password)
   end
