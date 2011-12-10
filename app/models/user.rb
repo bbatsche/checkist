@@ -1,5 +1,7 @@
+require 'digest'
+
 class User < ActiveRecord::Base
-  attr_accessible :name, :email, :password
+  attr_accessible :name, :email, :password, :password_confirmation
   
   email_regexp = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
@@ -11,6 +13,23 @@ class User < ActiveRecord::Base
                     :uniqueness => { :case_sensitive => false }
   
   validates :password, :presence => true,
+                       :confirmation => true,
                        :format   => { :with => /(?:\d\D)|(?:\D\d)/ },
                        :length   => { :minimum => 5 }
+  
+  before_save :encrypt_password
+  
+  def has_password?(submitted_password)
+    password == encrypt(submitted_password)
+  end
+  
+  private
+  
+  def encrypt_password
+    self.password = encrypt(password)
+  end
+  
+  def encrypt(string)
+    Digest::MD5.hexdigest(string)
+  end
 end
