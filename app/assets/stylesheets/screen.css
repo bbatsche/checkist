@@ -1,24 +1,25 @@
-body {
-    background-color: #ffcc70;
-}
+body { background-color: #ffcc70; }
 
 header {
-    width: 100%;
     background-color: #ff692d;
     border-bottom: 2px groove threedface;
-    position: relative;
+    position: absolute;
     padding: 4px 0 4px 4px;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 3.5em;
 }
 
-header h1 {
-    margin: 0px;
-}
+header h1 { margin: 0px; }
 
 a#logout {
     position: absolute;
     right: 8px;
     top: 4px;
 }
+
+div#content { margin-top: 4.5em; }
 
 ul.todo_list { list-style: none; }
 
@@ -42,23 +43,35 @@ div#incoming_todos ul.todo_list li {
     border-bottom-left-radius: .4em;
 }
 
-div#existing_todos ul.todo_list {
-    padding: 0 3em 0 0;
-}
+div#existing_todos ul.todo_list { padding: 0 3em 0 0; }
 
 div#existing_todos ul.todo_list li {
     border-top-right-radius: .4em;
     border-bottom-right-radius: .4em;
 }
 
-a.check_item:link {
+a.check_item:link,    a.check_item:visited,
+a.reassign_item:link, a.reassign_item:visited,
+a.delete_item:link,   a.delete_item:visited {
     text-decoration: none;
     color: #222;
 }
 
-a.check_item:hover {
-    color: #090;
+a.check_item:hover { color: #090; }
+
+a.delete_item:link {
+    position: absolute;
+    right: .4em;
 }
+
+a.delete_item:hover { color: #900; }
+
+a.reassign_item:link {
+    position: absolute;
+    right: 1.4em;
+}
+
+a.reassign_item:hover { color: #00c; }
 
 div.control_incoming_item {
     font-size: .6em;
@@ -67,9 +80,7 @@ div.control_incoming_item {
     top: .3em;
 }
 
-form#add_item {
-    font-size: .6em;
-}
+form#add_item { font-size: .6em; }
 
 form#add_item input,
 form#add_item label {
@@ -81,26 +92,4 @@ div.due_date {
     position: absolute;
     right: 5.4em;
     bottom: .3em;
-}
-
-a.delete_item:link {
-    text-decoration: none;
-    color: #222;
-    position: absolute;
-    right: .4em;
-}
-
-a.delete_item:hover {
-    color: #900;
-}
-
-a.reassign_item:link {
-    text-decoration: none;
-    color: #222;
-    position: absolute;
-    right: 1.4em;
-}
-
-a.reassign_item:hover {
-    color: #00c;
 }
