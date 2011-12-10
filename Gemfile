@@ -10,6 +10,7 @@ group :production do
 end
 group :development, :test do
   gem 'sqlite3'
+  gem 'rspec-rails', ">= 2.0.0.beta"
 end
 
 # Gems used only for assets and not required
