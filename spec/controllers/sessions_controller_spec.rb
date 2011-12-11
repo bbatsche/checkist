@@ -41,7 +41,7 @@ describe SessionsController do
       before(:each) do
         tempUser = {:name => "John Doe", :email => "jdoe@example.com", :password => 'john1'}
         @user = User.create!(tempUser)
-        @attr = {:email => "jdoe@example.com"}
+        @attr = {:email => "jdoe@example.com", :password => "john1"}
       end
       
       it "should sign in the user" do
@@ -56,7 +56,7 @@ describe SessionsController do
     before(:each) do
         tempUser = {:name => "John Doe", :email => "jdoe@example.com", :password => 'john1'}
         @user = User.create!(tempUser)
-        @attr = {:email => "jdoe@example.com"}
+        @attr = {:email => "jdoe@example.com", :password => "john1"}
     end
     
     it "should sign a user out" do
