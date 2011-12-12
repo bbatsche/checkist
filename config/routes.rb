@@ -15,6 +15,8 @@ Checkist::Application.routes.draw do
   match '/show_assign/:id'   => 'todos#show_assign'
   match '/todos/destroy/:id' => 'todos#destroy'
   match '/assign/:id'        => 'todos#assign'
+  match '/accept/:id'        => 'todos#accept'
+  match '/reject/:id'        => 'todos#reject'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

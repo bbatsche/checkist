@@ -1,3 +1,32 @@
+<% if @incoming_todos.count > 0 %>
+  <div id="incoming_todos">
+    <h2>Incoming Todos</h2>
+    
+    <ul class="todo_list">
+      <% for pending_item in @incoming_todos %>
+        <li>
+          <%= pending_item.content %>
+          
+          <div class="assigned_from">
+            From <%= pending_item.owner.name %>
+          </div>
+          
+          <% if !pending_item.due_date.nil? %>
+            <div class="pending_due_date">
+              Due on <%= pending_item.due_date %>
+            </div>
+          <% end -%>
+          
+          <div class="control_incoming_item">
+            <%= link_to "Accept", { :controller => "todos", :action => "accept", :id => pending_item.id } %> |
+            <%= link_to "Reject", { :controller => "todos", :action => "reject", :id => pending_item.id } %>
+          </div>
+        </li>
+      <% end -%>
+    </ul>
+  </div>
+<% end -%>
+
 <div id="existing_todos">
   <h2>Your Todos</h2>
   
@@ -17,13 +46,15 @@
       </li>
     <% end -%>
       <li>
-          <%= form_for @todo_item do |f| -%>
-            <%= f.label :content, "New" %>
-            <%= f.text_field :content, :size => 64 %>
-            <%= f.label :due_date, "Due" %>
-            <%= f.text_field :due_date, :size => 8 %>
-            <%= f.submit "Add" %>
-          <% end -%>
-        </li>
-    </ul>
+        <%= form_for @todo_item do |f| -%>
+          <%= f.label :content, "New" %>
+          <%= f.text_field :content, :size => 64 %>
+          
+          <%= f.label :due_date, "Due" %>
+          <%= f.text_field :due_date, :size => 8 %>
+          
+          <%= f.submit "Add" %>
+        <% end -%>
+      </li>
+  </ul>
 </div>

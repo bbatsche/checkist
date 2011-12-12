@@ -57,10 +57,13 @@ div#existing_todos ul.todo_list li {
 
 a.check_item:link,    a.check_item:visited,
 a.reassign_item:link, a.reassign_item:visited,
-a.delete_item:link,   a.delete_item:visited {
+a.delete_item:link,   a.delete_item:visited,
+.control_incoming_item a:link, .control_incoming_item a:visited {
     text-decoration: none;
     color: #222;
 }
+
+.control_incoming_item a:hover { text-decoration: underline; }
 
 a.check_item:hover { color: #090; }
 
@@ -79,16 +82,16 @@ a.reassign_item:link {
 a.reassign_item:hover { color: #00c; }
 
 div.control_incoming_item {
-    font-size: .6em;
+    font-size: .7em;
     position: absolute;
-    right: 2.4em;
-    top: .3em;
+    right: 2em;
+    bottom: .1em;
 }
 
-form#new_todo { font-size: .6em; }
+form#new_todo, form#assign_form { font-size: .6em; }
 
-form#new_todo input,
-form#new_todo label {
+form#new_todo input,    form#new_todo label,
+form#assign_form input, form#assign_form label {
     margin: .3em;
 }
 
@@ -96,5 +99,19 @@ div.due_date {
     font-size: .5em;
     position: absolute;
     right: 5.4em;
+    bottom: .3em;
+}
+
+div.pending_due_date {
+    font-size: .5em;
+    position: absolute;
+    right: 13.4em;
+    bottom: .3em;
+}
+
+div.assigned_from {
+    font-size: .5em;
+    position: absolute;
+    right: 23.4em;
     bottom: .3em;
 }

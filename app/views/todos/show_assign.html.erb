@@ -1,0 +1,20 @@
+<div id="existing_todos">
+  <ul class="todo_list">
+    <li>
+      <%= @todo_item.content %>
+      <% if !@todo_item.due_date.nil? %>
+        <div class="due_date">
+          Due on <%= @todo_item.due_date %>
+        </div>
+      <% end -%>
+    </li>
+    <li>
+      <%= form_for :assign_todo, :url => { :controller => "todos", :action => "assign", :id => @todo_item.id }, :html => { :id => 'assign_form' } do |f| -%>
+        <%= f.label :email, "User (eMail)" %>
+        <%= f.email_field :email, :size => 64 %>
+        
+        <%= f.submit "Assign" %>
+      <% end -%>
+    </li>
+  </ul>
+</div>
