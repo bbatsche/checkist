@@ -18,6 +18,11 @@ a.authLink {
     right: 8px;
     top: 4px;
 }
+a.signupLink {
+    position: absolute;
+    right: 8px;
+    bottom: 4px;
+}
 
 div#content { margin-top: 4.5em; }
 

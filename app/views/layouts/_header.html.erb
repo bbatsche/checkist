@@ -10,6 +10,7 @@
     <% if signed_in? %>
         <%= link_to "Log Out", signout_path, {'class' => 'authLink'} %>
     <% else %>
-        <%= link_to "Log In", signin_path, {'class' => 'authLink'}%>
+        <%= link_to "Log In", signin_path, {'class' => 'authLink'} %>
+        <%= link_to "Sign Up", signup_path, {'class' => 'signupLink'} %>
     <% end %>
 </header>
