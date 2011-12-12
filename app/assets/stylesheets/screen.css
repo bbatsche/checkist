@@ -13,7 +13,7 @@ header {
 
 header h1 { margin: 0px; }
 
-a#logout {
+a.authLink {
     position: absolute;
     right: 8px;
     top: 4px;
