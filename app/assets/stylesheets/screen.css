@@ -85,10 +85,10 @@ div.control_incoming_item {
     top: .3em;
 }
 
-form#add_item { font-size: .6em; }
+form#new_todo { font-size: .6em; }
 
-form#add_item input,
-form#add_item label {
+form#new_todo input,
+form#new_todo label {
     margin: .3em;
 }
 

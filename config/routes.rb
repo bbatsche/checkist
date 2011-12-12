@@ -1,15 +1,21 @@
 Checkist::Application.routes.draw do
   resources :sessions, :only => [:new, :create, :destroy]
   resources :users,    :only => [:new, :create]
+  resources :todos,    :only => [:index, :create]
   
-  root :to => 'pages#home'
+  root :to => 'todos#index'
   
   match "/about",   :to => "pages#about"
   match "/help",    :to => "pages#help"
   match '/signin',  :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
   match '/signup',  :to => 'users#new'
-
+  
+  match '/mark_complete/:id' => 'todos#mark_complete'
+  match '/show_assign/:id'   => 'todos#show_assign'
+  match '/todos/destroy/:id' => 'todos#destroy'
+  match '/assign/:id'        => 'todos#assign'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

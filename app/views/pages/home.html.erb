@@ -1,5 +1,3 @@
-<%# These items will need to be broken down into their correct views and partials. %>
-<%# For now though, we'll just use these static partials for layout purposes. %>
-<%= render 'pages/incoming_todos'%>
-<%= render 'pages/existing_todos'%>
-<%= render 'pages/completed_todos'%>
+<h2>We Take the 'l' of Checklists!</h2>
+<p>...and no, we don't know what that means exactly, but it sounds good doesn't it?</p>
+<p><%= link_to "Log in", signin_path, {'class' => 'authLink'} %> if you're an existing user or please <%= link_to "sign up", signup_path, {'class' => 'signupLink'} %> if you're new, and you can start making checkists in a matter of minutes!</p>

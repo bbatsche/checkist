@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111210004807) do
+ActiveRecord::Schema.define(:version => 20111212072716) do
 
   create_table "todos", :force => true do |t|
     t.string   "content"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20111210004807) do
     t.integer  "pending_owner"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "complete",      :default => false
   end
 
   create_table "users", :force => true do |t|

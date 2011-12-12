@@ -1,0 +1,29 @@
+<div id="existing_todos">
+  <h2>Your Todos</h2>
+  
+  <ul class="todo_list">
+    <% for todo_item in @assigned_todos %>
+      <li>
+        <%= link_to raw("&#10004;"), { :controller => "todos", :action => "mark_complete", :id => todo_item.id }, { :title => "Mark Complete", :class => 'check_item' } %>
+        <%= todo_item.content %>
+        <% if !todo_item.due_date.nil? %>
+          <div class="due_date">
+            Due on <%= todo_item.due_date %>
+          </div>
+        <% end -%>
+        
+        <%= link_to raw("&#10150;"), { :controller => "todos", :action => "show_assign", :id => todo_item.id }, { :title => "Assign to...", :class => 'reassign_item' } %>
+        <%= link_to raw("&#10008;"), { :controller => "todos", :action => "destroy", :id => todo_item.id }, { :title => "Delete...", :class => 'delete_item' } %>
+      </li>
+    <% end -%>
+      <li>
+          <%= form_for @todo_item do |f| -%>
+            <%= f.label :content, "New" %>
+            <%= f.text_field :content, :size => 64 %>
+            <%= f.label :due_date, "Due" %>
+            <%= f.text_field :due_date, :size => 8 %>
+            <%= f.submit "Add" %>
+          <% end -%>
+        </li>
+    </ul>
+</div>
